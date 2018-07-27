@@ -18,8 +18,7 @@ module.exports = {
   },
   theme: 'vue',
   themeConfig: {
-    repo: 'linjinze999',
-    docsRepo: 'linjinze999/linjinze999.github.io',
+    repo: 'linjinze999/linjinze999.github.io',
     docsDir: 'docs',
     editLinks: true,
     locales: {
