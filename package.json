@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs",
+    "release": "/bin/bash scripts/release.sh",
+    "release-win": "scripts\\release.bat",
+    "deploy": "/bin/bash scripts/deploy.sh",
+    "deploy-win": "scripts\\deploy.bat"
+  }
+}
