@@ -18,7 +18,8 @@ module.exports = {
   },
   theme: 'vue',
   themeConfig: {
-    repo: 'linjinze999/blog-vuepress',
+    repo: 'linjinze999',
+    docsRepo: 'linjinze999/blog-vuepress',
     docsDir: 'docs',
     editLinks: true,
     locales: {
