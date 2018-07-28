@@ -207,3 +207,67 @@ Initializing plugins.
 ## 域名配置
 暂时见：【你的系统】->【Documentation】->【Table of Contents】->【
 Reverse Proxy】，或网上[别人的系统文档](http://gerrit.aokp.co/Documentation/config-reverseproxy.html)
+
+**1. Gerrit配置**
+
+配置文件 `$site_path'/etc/gerrit.config` 修改以下配置：
+```
+[gerrit]
+        canonicalWebUrl = http://www.example.com/gerrit/
+[httpd]
+        listenUrl = proxy-http://*:8080/gerrit/
+```
+之后重启系统：`$site_path'/bin/gerrit.sh restart`
+
+**2. 代理配置**
+
+#### a) Apache2
+
+::: tip 提示
+添加配置前，请安装Apache2:`sudo apt-get install apache2`。
+:::
+
+- 执行以下命令，确保所需模块被开启：
+```
+sudo a2enmod proxy_http
+sudo a2enmod ssl # 可选，使用 HTTPS / SSL 时必需
+```
+- 修改配置文件`/etc/apache2/sites-available/000-default.conf`，添加端口转发（以下加黑部分）：
+``` {4-17}
+<VirtualHost *:80>
+    # ... default settings ...
+
+    # Add gerrit proxy
+	ServerName www.example.com
+
+    ProxyRequests Off
+    ProxyVia Off
+    ProxyPreserveHost On
+
+    <Proxy *>
+      Order deny,allow
+      Allow from all
+    </Proxy>
+
+    AllowEncodedSlashes On
+    ProxyPass /gerrit/ http://127.0.0.1:8080/gerrit/ nocanon
+</VirtualHost>
+```
+
+之后重启apache2：`sudo service apache2 restart`
+
+
+#### b) Nginx
+配置如下：
+``` {5-9}
+server {
+  listen 80;
+  server_name review.example.com;
+
+  location /gerrit/ {
+    proxy_pass        http://127.0.0.1:8081;
+    proxy_set_header  X-Forwarded-For $remote_addr;
+    proxy_set_header  Host $host;
+  }
+}
+```
