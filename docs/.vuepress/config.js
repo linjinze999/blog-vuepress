@@ -16,6 +16,7 @@ module.exports = {
   markdown: {
     lineNumbers: true
   },
+  serviceWorker: true,
   theme: 'vue',
   themeConfig: {
     repo: 'linjinze999',
@@ -24,7 +25,9 @@ module.exports = {
     editLinks: true,
     locales: {
       '/': {
-        editLinkText: '帮助我改进此页',
+        label: '简体中文',
+        selectText: '选择语言',
+        editLinkText: '帮我改进此页',
         lastUpdated: '上次更新',
         nav: [
           {
