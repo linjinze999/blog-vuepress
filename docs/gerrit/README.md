@@ -1,8 +1,6 @@
-# 介绍
+# Gerrit介绍
 
-<Bit/>
-
-Gerrit，一种免费、开放源代码的代码审查软件。
+[Gerrit](https://www.gerritcodereview.com/)，一种免费、开放源代码的代码审查软件。本文介绍了Gerrit系统常见的运维事项。
 
 ## 软件介绍
 
@@ -12,7 +10,3 @@ Gerrit，一种免费、开放源代码的代码审查软件，使用网页界�
 ## 软件历史
 
 这个软件的名称，来自于荷兰设计师赫里特·里特费尔德（Gerrit Rietveld）。最早它是由Python写成，在第二版后，改成用Java与SQL。使用Google Web Toolkit来产生前端的JavaScript。
-
-## 说明
-
-本文介绍了Gerrit系统常见的运维事项。

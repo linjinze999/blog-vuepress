@@ -67,7 +67,7 @@ java -jar /home/gerrit/gerrit-2.14.9.war init -d /home/gerrit/review_site
 
 按照提示输入初始化参数：
 
-``` bash{14,18,24,55,84}
+``` bash{14,18-20,24,55,84}
 *** Gerrit Code Review 2.14.9
 *** 
 
@@ -205,7 +205,7 @@ Initializing plugins.
 ```
 
 ## 域名配置
-暂时见：【你的系统】->【Documentation】->【Table of Contents】->【
+可见：【你的系统】->【Documentation】->【Table of Contents】->【
 Reverse Proxy】，或网上[别人的系统文档](http://gerrit.aokp.co/Documentation/config-reverseproxy.html)
 
 **1. Gerrit配置**
@@ -254,7 +254,9 @@ sudo a2enmod ssl # 可选，使用 HTTPS / SSL 时必需
 </VirtualHost>
 ```
 
-之后重启apache2：`sudo service apache2 restart`
+- 重启apache2：`sudo service apache2 restart`
+
+之后访问网站+`/gerrit/`即可进入系统，如：`www.example.com/gerrit/`
 
 
 #### b) Nginx
