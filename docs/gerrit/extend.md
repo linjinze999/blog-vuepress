@@ -63,11 +63,14 @@ ssh -p 29418 review.example.com gerrit set-project example --submit-type REBASE_
 ssh -p 29418 review.example.com gerrit query --format=JSON status:open project:tools/gerrit limit:2
 ```
 
+## Hooks钩子
+Gerrit系统支持在做代码操作时，产生相应事件，触发钩子脚本执行指定任务。如在代码入库时，触发自动化测试等。我们可以在`review_site/hooks/`目录下创建指定名字的脚本，让相应事件发生时执行指定任务，具体事件和脚本名可见[扩展-Hooks](/gerrit/extend-hooks/)
+
+## 容器化和k8s部署
+见[https://github.com/linjinze999/gerrit-docker](https://github.com/linjinze999/gerrit-docker)
+
 ## Sonarqube代码检查
 可结合[Sonarqube](https://www.sonarqube.org/)代码检查，在工程师提交代码的时候，及时地做代码质量检查，以便及时修改，增加代码的可读性与维护性，减少后期修改成本。
 
 部署方式暂时见：[https://github.com/linjinze999/Operation/tree/master/SonarQube](https://github.com/linjinze999/Operation/tree/master/SonarQube)
-
-## Hooks钩子
-Gerrit系统支持在做代码操作时，产生相应事件，触发钩子脚本执行指定任务。如在代码入库时，触发自动化测试等。我们可以在`review_site/hooks/`目录下创建指定名字的脚本，让相应事件发生时执行指定任务，具体事件和脚本名可见[扩展-Hooks](/gerrit/extend-hooks/)
 
