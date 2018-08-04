@@ -4,7 +4,7 @@ module.exports = {
     '/': {
       lang: 'zh-CN',
       title: '林锦泽的个人博客',
-      description: 'linjinze999@163.com'
+      description: 'gerrit运维，包括部署、配置、升级、主从系统分布式集群、版本说明、样式优化、插件下载、接口调用、docker容器化、sonarqube代码检查。'
     }
   },
   head: [
@@ -16,7 +16,8 @@ module.exports = {
     ['link', { rel: 'apple-touch-icon', href: `/icons/apple-touch-icon-152x152.png` }],
     ['link', { rel: 'mask-icon', href: '/icons/safari-pinned-tab.svg', color: '#3eaf7c' }],
     ['meta', { name: 'msapplication-TileImage', content: '/icons/msapplication-icon-144x144.png' }],
-    ['meta', { name: 'msapplication-TileColor', content: '#000000' }]
+    ['meta', { name: 'msapplication-TileColor', content: '#000000' }],
+    ['meta', { name: 'description', content: 'gerrit运维' }]
   ],
   markdown: {
     lineNumbers: true

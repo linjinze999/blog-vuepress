@@ -13,3 +13,12 @@
 # VuePress
 
 采用[vuepress](https://www.vuepress.cn/)编写的个人博客。
+```
+npm i -g vuepress vuepress-theme-vue element-ui
+```
+
+## 命令说明
+1. 开发：`npm run dev`
+2. 构建：`npm run build`
+3. 提交：`npm run release/release-win`
+4. 部署：`npm run deploy/deploy-win`（需先构建）

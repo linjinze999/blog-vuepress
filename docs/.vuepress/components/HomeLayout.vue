@@ -3,9 +3,8 @@
     <div class="my-page main">
       <el-card class="main-card">
         <h1 align="center"><img src="hero.png" class="logo-img"></h1>
-        <h1 align="center">林锦泽</h1>
-        <p align="center">世上所有不愉快，都是由当事者能力不足所导致的。</p>
-        <p align="center">所以，变强吧。</p>
+        <h3 align="center">林锦泽</h3>
+        <p align="center">世间所有不愉快，都是由当事者能力不足所导致的。<br>所以，变强吧。</p>
         <div class="categories">
             <router-link to="/gerrit/">
               <el-button type="success" round>Gerrit运维</el-button>
@@ -124,8 +123,7 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.prototype.$ELEMENT = { size: 'small', zIndex: 3000 };
 Vue.use(ElementUI);
-export default {
-}
+export default {}
 </script>
 
 <style>
@@ -150,7 +148,7 @@ export default {
 
 .main-card {
   width:80%;
-  max-width: 500px;
+  max-width: 450px;
 }
 
 .categories {
@@ -159,8 +157,7 @@ export default {
 
 .logo-img {
   width: 150px;
-  height: 150px;
-  border-radius: 50%;
+  height: 136px;
 }
 
 .skill {
@@ -234,11 +231,22 @@ export default {
   }
 }
 
+@media (min-width: 1900px) {
+  .my-page {
+    height: 900px;;
+  }
+}
+
+@media (max-width: 1400px) {
+  .my-page {
+    height: 600px;;
+  }
+}
+
 @media (max-width: 720px){
   .logo-img {
     width: 80px;
-    height: 80px;
-    border-radius: 50%;
+    height: 72px;
   }
   .my-page {
     height: 450px;;
@@ -250,4 +258,5 @@ export default {
     display: block;
   }
 }
+
 </style>
