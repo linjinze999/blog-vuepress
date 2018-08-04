@@ -248,9 +248,6 @@ export default {}
     width: 80px;
     height: 72px;
   }
-  .my-page {
-    height: 450px;;
-  }
   .skill-large {
     display: none;
   }
