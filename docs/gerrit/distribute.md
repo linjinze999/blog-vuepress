@@ -63,6 +63,9 @@ Gerrit主从系统没有强制要求另起一个数据库，因此你可以直�
   # 线程数
   threads = 4
 ```
+::: tip 提示
+点击查看[全部replication.config配置](/gerrit/distribute-config/)
+:::
 3. 重启系统 或 重新加载插件生效：
 
 服务器执行：
