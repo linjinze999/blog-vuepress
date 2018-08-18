@@ -40,10 +40,14 @@ module.exports = {
           {
             text: 'Gerrit运维',
             link: '/gerrit/',
-          }
+          },{
+            text: 'vue-llplatform',
+            link: '/vue-llplatform/',
+		  }
         ],
         sidebar: {
-          '/gerrit/': genSidebarConfig('Gerrit运维')
+          '/gerrit/': genSidebarConfig('Gerrit运维'),
+		  '/vue-llplatform/':['', 'start', 'request']
         }
       }
     }

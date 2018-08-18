@@ -69,7 +69,8 @@ export default {
       title: "林锦泽",
       description: "世间所有不愉快，都是由当事者能力不足所导致的。<br/>所以，变强吧。",
       catalog: [
-        {name: "Gerrit运维", link: "/gerrit/"}
+        {name: "Gerrit运维", link: "/gerrit/"},
+		{name: "vue-llplatform", link: "/vue-llplatform/"}
       ],
       skills: [
         {name: "Javascript", percentage: 80},
