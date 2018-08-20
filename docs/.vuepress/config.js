@@ -47,7 +47,12 @@ module.exports = {
         ],
         sidebar: {
           '/gerrit/': genSidebarConfig('Gerrit运维'),
-		  '/vue-llplatform/':['', 'start', 'request']
+		  '/vue-llplatform/':[
+		    '', 
+			'start',
+			'request',
+			'permission',
+			'login']
         }
       }
     }

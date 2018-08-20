@@ -69,10 +69,11 @@ npm install axios -S
 
 ## 安装mockjs
 为了方便调试，本项目使用[mockjs](http://mockjs.com/)来拦截请求，生成模拟数据并返回给前端页面。
-```
+``` bash
 npm install mockjs -S
 ```
 创建`src/mock/index.js`文件，用于模拟后台返回数据。
+
 
 ## 其他修改
 ### 1. 修改eslint
@@ -87,6 +88,13 @@ npm install mockjs -S
     'camelcase': 'off'
   }
 ```
+  - vue eslint规则和idea冲突：如果你使用IDEA或webstorm编辑代码，会发现其内置规则与vue eslint规则有所冲突，需要我们修改一下。
+    - script、style标签缩进：IDEA会在vue文件的`script`标签里，为所有代码进行缩进，但vue eslint规则是不缩进，此时就会报错`expected indentation of 0 spaces but found 2`。可以修改IDEA或webstorm配置：File => Setting => Editor => Code Style => HTML => Other，找到 `Do not indent children of` 的选项，添加`script`和`style`标签就完美解决缩进问题。
+    - 行末`;`符号和单引号问题：vue eslint不允许末尾有`;`，且字符串使用单引号。设置：File => Setting => Editor => Code Style => JavaScript => Punctuation，修改为`Don't use` semicolon to terminate statements `always`；Use `single` quotes `always`。
+    - 函数后空格：vue eslint规定函数名与`()`之间需有空格。File => Setting => Editor => Code Style => JavaScript => Spaces，勾选`Function declaration parentheses`。
+    - 缩进问题：vue eslint默认缩进两个空格。File => Setting => Editor => Code Style => CSS、HTML、JavaScript => Tabs and Indents，将三种语言的缩进设置改为：Tab size=2；Indent=2；Continuation indent=4
+    - 不允许连续两个空行：vue eslint默认不允许有连续两个空行。File => Setting => Editor => Code Style => JavaScript => Blank Lines，设置Keep Maximum Blank Lines => In code：1。
+
 ### 2. 目录结构
 创建以下目录：
  - `src/api`：用于编写后台请求js
@@ -95,6 +103,7 @@ npm install mockjs -S
  - `src/assets/img`：用于存放公共图片
  - `src/mock`：用于编写模拟后台数据
  - `src/utils`：用于存放公共工具文件
+
 整体目录结构如下：
 ``` {6,8,9,10,12,15}
 vue-llplatform
@@ -125,4 +134,17 @@ vue-llplatform
 |— index.html      // 首页入口
 |— package.json    // webpack配置
 └─ README.md
+```
+
+**备注：**
+你可以通过设置`build/webpack.base.conf.js`的`resolve.alias`来为文件夹路径设置别名
+``` js {6}
+  resolve: {
+    extensions: ['.js', '.vue', '.json'],
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js',
+      '@': resolve('src'),
+      'img': '@/assets/img'
+    }
+  }
 ```

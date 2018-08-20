@@ -1,8 +1,7 @@
-# 开始
-本章节介绍搭建项目的大体框架。
+# 网络请求
+本章节介绍对底层请求的统一封装。
 
-## 数据请求
-### 1. 统一请求封装
+## 统一请求封装
 虽然我们可以直接利用[axios](https://github.com/axios/axios)进行网络请求，但大多情况下我们希望进行请求时能自动对一些错误码进行处理。并且通常我们会和后台有一个约定的数据返回格式，当后台返回一个错误时，我们也希望有一个统一的函数进行处理。
 
 另外为了加快访问速度，有时我们需要对请求进行缓存。以下内容就提供了统一的错误处理和请求缓存，只需将以下内容写入`src/utiles/request.js`即可：
@@ -121,7 +120,7 @@ export const localRequest = (url, params, out_time = 604800, config = {}, auto_e
 }
 ```
 
-### 2. 后台访问接口
+## 后台接口
 在`src/api`目录下统一编写后台访问接口，提供给页面进行调用。
 
 举例：在`src/api/user`下统一编写用户相关的接口，如下面的用户登录：
@@ -133,8 +132,8 @@ export const requestLogin = params => {
 }
 ```
 
-### 3. 模拟数据
-在`src/main.js`中启用模拟数据（见第4、8行）：
+## 模拟数据
+在开发时我们需要模拟后台返回数据，而不是等后台写完接口。在`src/main.js`中启用模拟数据（见第4、8行）：
 ``` js {4,8}
 import Vue from 'vue'
 import App from './App'
@@ -147,7 +146,7 @@ Mock.mockData()
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 ```
-在`src/mock/index.js`目录下统一编写mock数据，拦截请求并返回约定格式的模拟数据。如以下就是拦截第2步中的登录请求并返回指定数据：
+在`src/mock/index.js`目录下统一编写mock数据，拦截请求并返回约定格式的模拟数据。正式使用时删除模拟数据即可。如以下就是拦截第2步中的登录请求并返回指定数据：
 ``` js {5}
 import Mock from 'mockjs'
 
@@ -165,7 +164,7 @@ export default {
 }
 ```
 
-### 4. 使用请求
+## 使用请求
 修改`src/components/HelloWorld.vue`为以下内容：
 ``` js {3,8,14}
 <template>
@@ -195,8 +194,3 @@ export default {
 
 或者修改`src/api/user.js`，请求无效的url：`/api/user/logout`↓
 <img src="/assets/img/vue-llplatform/request-demo-error-res.png" height="300" width="420" style="border: 1px solid #000">
-
-
-## 登录界面
-
-## 主界面框架
