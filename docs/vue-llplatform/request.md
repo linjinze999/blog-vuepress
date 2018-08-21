@@ -123,7 +123,7 @@ export const localRequest = (url, params, out_time = 604800, config = {}, auto_e
 ## 后台接口
 在`src/api`目录下统一编写后台访问接口，提供给页面进行调用。
 
-举例：在`src/api/user`下统一编写用户相关的接口，如下面的用户登录：
+举例：在`src/api/user.js`下统一编写用户相关的接口，如下面的用户登录：
 ``` js
 import {request} from '../utils/request'
 
