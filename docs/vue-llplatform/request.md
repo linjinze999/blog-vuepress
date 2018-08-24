@@ -45,14 +45,13 @@ import { MessageBox } from 'element-ui'
  *
  **/
 
-let baseURL = ''
+axios.defaults.baseURL = ''
 
 /* 普通请求 */
 export const request = (url, params, config = {}, auto_error_res = true, auto_error_data = true) => {
   const args = Object.assign({
     'method': 'post',
     'url': url,
-    'baseURL': baseURL,
     'data': params
   }, config)
   return axios(args).then((res) => {
