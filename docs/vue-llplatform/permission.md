@@ -162,7 +162,7 @@ export const localRequest = (url, params, out_time = 604800, config = {}, auto_e
 }
 
 ```
-此处使用`localStorage`存储token，因此登录时需要存储一下token，假设约定后台返回格式如下：
+此处使用`localStorage`存储token（使用`localStorage`下次登录仍可使用此token，达到下次自动登录的效果；你也可以使用`sessionStorage`，但下次需要重新登录），因此登录时需要存储一下token，假设约定后台返回格式如下：
 ``` js
 {
   success: true,

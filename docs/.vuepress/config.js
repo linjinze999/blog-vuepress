@@ -52,7 +52,8 @@ module.exports = {
 			'start',
 			'request',
 			'login',
-			'permission']
+			'permission',
+			'error']
         }
       }
     }
