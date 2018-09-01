@@ -6,9 +6,9 @@
         <h3 align="center">{{ title }}</h3>
         <p align="center" v-html="description"></p>
         <div class="categories">
-            <router-link v-for="ca in catalog" v-bind:to="ca.link">
-              <el-button type="success" round>{{ ca.name }}</el-button>
-            </router-link>
+          <router-link v-for="ca in catalog" v-bind:to="ca.link" :key="ca.link">
+            <el-button type="success" round size="small">{{ ca.name }}</el-button>
+          </router-link>
         </div>
       </el-card>
     </div>
@@ -19,16 +19,16 @@
         <i class="el-icon-loading" style="margin-left:20px;"></i>
       </div>
       <div class="skill-large">
-        <el-row v-for="index of (Math.ceil(skills.length / 4))">
-          <el-col :span="6" v-for="sk in skills.slice((index - 1) * 4, (index - 1) * 4 + 4)">
+        <el-row v-for="index of (Math.ceil(skills.length / 4))" :key="index">
+          <el-col :span="6" v-for="sk in skills.slice((index - 1) * 4, (index - 1) * 4 + 4)" :key="index+'-'+sk">
             <el-progress type="circle" :percentage="sk.percentage" :width="skill_large_size"></el-progress>
             <p>{{ sk.name }}</p>
           </el-col>
         </el-row>
       </div>
       <div class="skill-small">
-        <el-row v-for="index of (Math.ceil(skills.length / 4))">
-          <el-col :span="6" v-for="sk in skills.slice((index - 1) * 4, (index - 1) * 4 + 4)">
+        <el-row v-for="index of (Math.ceil(skills.length / 4))" :key="index">
+          <el-col :span="6" v-for="sk in skills.slice((index - 1) * 4, (index - 1) * 4 + 4)" :key="index+'-'+sk">
             <el-progress type="circle" v-bind:percentage="sk.percentage" :width="skill_small_size"></el-progress>
             <p>{{ sk.name }}</p>
           </el-col>
@@ -43,7 +43,8 @@
       </div>
       <div class="experience-content">
         <el-steps direction="vertical" :active="experience.length - 1" finish-status="success">
-          <el-step v-for="exp in experience" v-bind:title="exp.title" v-bind:description="exp.description" icon="el-icon-location-outline"></el-step>
+          <el-step v-for="exp in experience" v-bind:title="exp.title" v-bind:description="exp.description"
+                   icon="el-icon-location-outline" :key="exp.title"></el-step>
           <el-step title="未完待续" icon="el-icon-location-outline"></el-step>
         </el-steps>
       </div>
@@ -57,42 +58,43 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
-Vue.prototype.$ELEMENT = { size: 'small', zIndex: 3000 };
-Vue.use(ElementUI);
+import Vue from 'vue'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+
+Vue.prototype.$ELEMENT = {size: 'small', zIndex: 3000}
+Vue.use(ElementUI)
 export default {
-  data: function(){
+  data: function () {
     return {
-      avatars: "hero.png",
-      title: "林锦泽",
-      description: "世间所有不愉快，都是由当事者能力不足所导致的。<br/>所以，变强吧。",
+      avatars: 'hero.png',
+      title: '林锦泽',
+      description: '世间所有不愉快，都是由当事者能力不足所导致的。<br/>所以，变强吧。',
       catalog: [
-        {name: "Gerrit运维", link: "/gerrit/"},
-		{name: "vue-llplatform", link: "/vue-llplatform/"}
+        {name: 'Gerrit运维', link: '/gerrit/'},
+        {name: 'vue-llplatform', link: '/vue-llplatform/'}
       ],
       skills: [
-        {name: "Javascript", percentage: 80},
-        {name: "Python", percentage: 80},
-        {name: "Java", percentage: 65},
-        {name: "C++", percentage: 50},
-        {name: "Vue", percentage: 60},
-        {name: "Django", percentage: 70},
-        {name: "SpringMVC", percentage: 55},
-        {name: "Docker", percentage: 80}
+        {name: 'Javascript', percentage: 80},
+        {name: 'Python', percentage: 80},
+        {name: 'Java', percentage: 65},
+        {name: 'C++', percentage: 50},
+        {name: 'Vue', percentage: 60},
+        {name: 'Django', percentage: 70},
+        {name: 'SpringMVC', percentage: 55},
+        {name: 'Docker', percentage: 80}
       ],
       skill_large_size: 120,
       skill_small_size: 80,
       experience: [{
-        title: "滴滴出行",
-        description: "使用Avalon MVVM框架开发前端WEB网页。"
-      },{
-        title: "TP-LINK",
-        description: "使用Python的Django框架开发部门DevOps网站。维护Gerrit、Jenkins等系统。"
+        title: '滴滴出行',
+        description: '使用Avalon MVVM框架开发前端WEB网页。'
+      }, {
+        title: 'TP-LINK',
+        description: '使用Python的Django框架开发部门DevOps网站。维护Gerrit、Jenkins等系统。'
       }],
-      my_home_qr: "/assets/img/home-qr.png",
-      my_home_text: "Email © linjinze999@163.com",
+      my_home_qr: '/assets/img/home-qr.png',
+      my_home_text: 'Email © linjinze999@163.com',
     }
   }
 }
@@ -119,16 +121,20 @@ export default {
 }
 
 .main-card {
-  width:80%;
+  width: 80%;
   max-width: 450px;
 }
 
 .categories {
-  text-align:center;
+  text-align: center;
 }
 
-.categories a{
+.categories a {
   margin-left: 15px;
+}
+
+.categories button {
+  margin-bottom: 5px;
 }
 
 .logo-img {
@@ -192,7 +198,7 @@ export default {
   background-attachment: fixed;
 }
 
-.contact img{
+.contact img {
   margin-top: 15px;
   width: 200px;
   heigth: 200px;
@@ -202,7 +208,8 @@ export default {
   .skill-large {
     display: block;
   }
-  .skill-small{
+
+  .skill-small {
     display: none;
   }
 }
@@ -219,14 +226,16 @@ export default {
   }
 }
 
-@media (max-width: 720px){
+@media (max-width: 720px) {
   .logo-img {
     width: 80px;
     height: 72px;
   }
+
   .skill-large {
     display: none;
   }
+
   .skill-small {
     display: block;
   }
