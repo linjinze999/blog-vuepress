@@ -1,3 +1,4 @@
+npm run build
 cp -r ./preview ./vuepress/
 cd vuepress
 git init
