@@ -59,12 +59,15 @@ export default {
 
 本项目自动使用第二种方案，我们将在下一章的[权限控制](/vue-llplatform/permission.html)中实现。
 
-#### 4. 页面跳转
+#### 4. 登录密码
+安全起见，请求登录时不会发送明文密码，而是发送加密后的字符串，本项目采用sha256加密算法。
+
+#### 5. 页面跳转
 页面跳转使用Vue官方的路由管理器[Vue Router](https://router.vuejs.org/zh/)，下一小节会介绍如何配置。
 
 
 ### 代码实现
-1. 创建`src/pages/main/AppLogin.vue`文件，编写登录页面：
+1. 创建`src/pages/login/AppLogin.vue`文件，编写登录页面：
 ``` vue
 <template>
   <div class='page'>
@@ -102,6 +105,7 @@ export default {
 </template>
 
 <script>
+import sha256 from 'crypto-js/sha256'
 import {requestLogin} from '@/api/user'
 
 export default {
@@ -129,7 +133,7 @@ export default {
       this.$refs.ruleForm.validate((valid) => {
         if (valid) {
           this.logining = true
-          var loginParams = {username: this.ruleForm.account, password: this.ruleForm.checkPass}
+          const loginParams = {username: this.ruleForm.account, password: sha256(this.ruleForm.checkPass)}
           requestLogin(loginParams).then(data => {
             this.logining = false
             this.$message({
@@ -156,6 +160,7 @@ export default {
 
 .title {
   text-align: center;
+  margin-bottom: 15px;
 }
 
 .page {
@@ -190,7 +195,7 @@ export default {
 </style>
 ```
 
-2. 创建`src/pages/main/AppRegister.vue`文件，编写注册页面
+2. 创建`src/pages/login/AppRegister.vue`文件，编写注册页面
 ``` vue
 <template>
   <div class='page'>
@@ -308,6 +313,7 @@ export default {
 
 .title {
   text-align: center;
+  margin-bottom: 15px;
 }
 
 .page {
@@ -352,12 +358,12 @@ export default {
 ```
 
 ## 路由管理
-以上我们编写完了页面，但却没有告诉系统什么时候去显示这些页面。这时候我们就需要一个[路由管理器](https://router.vuejs.org/zh/)，来帮我们自动调用这些页面。比如当URL是`/login`时，自动调用`src/pages/main/AppLogin.vue`页面并显示。
+以上我们编写完了页面，但却没有告诉系统什么时候去显示这些页面。这时候我们就需要一个[路由管理器](https://router.vuejs.org/zh/)，来帮我们自动调用这些页面。比如当URL是`/login`时，自动调用`src/pages/login/AppLogin.vue`页面并显示。
 
 1. 创建一张静态路由表`src/router/staticRouter.js`：
 ``` js
-import AppLogin from '@/pages/main/AppLogin'
-import AppRegister from '@/pages/main/AppRegister'
+import AppLogin from '@/pages/login/AppLogin'
+import AppRegister from '@/pages/login/AppRegister'
 import HelloWorld from '@/pages/components/HelloWorld'
 
 /* 静态页面路由 */

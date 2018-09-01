@@ -336,10 +336,73 @@ export const requestUserInfo = params => {
 }
 ```
 
+::: tip 提示
+以上方法限制了用户访问的URL。但页面权限还会涉及菜单的显示，可以通过读取sessionStorage中用户的权限列表，利用`v-if`只显示有权限的菜单。后续讲述菜单栏时会进行说明。
+:::
+
 ## 数据权限控制
 我们已在上一小节里将用户的数据级权限数据存入了`$route.meta.permission`，因此只要在页面渲染时使用`v-if`判断是否显示即可。比如：
 ``` html
 <div v-if="$route.meta.permission.includes('delete')">删除</div>
+```
+
+## 错误页面
+当用户输入未知的URL时，我们希望系统能跳转至指定的404页面。另外基于我们的权限控制设置，用户在没有权限访问页面时也需要跳转至指定页面。创建以下两个错误页面：
+1. 401用户无权限页面：`pages/error/AppError401.vue`
+``` vue
+<template>
+  <div>401用户无权限</div>
+</template>
+
+<script>
+export default {
+  name: 'AppError401'
+}
+</script>
+
+<style scoped>
+
+</style>
+```
+
+2. 404找不到资源页面：`pages/error/AppError404.vue`
+``` vue
+<template>
+  <div>404找不到资源</div>
+</template>
+
+<script>
+export default {
+  name: 'AppError404'
+}
+</script>
+
+<style scoped>
+
+</style>
+```
+
+修改路由配置`src/router/staticRouter.js`
+``` js 
+import AppError401 from '@/pages/error/AppError401'
+import AppError404 from '@/pages/error/AppError404'
+
+/* 静态页面路由 */
+const staticRouter = [
+  {
+    ...
+  }, {
+    path: '/error/401',
+    name: '401',
+    component: AppError401
+  }, {
+    path: '*',
+    name: '404',
+    component: AppError404
+  }
+]
+
+export default staticRouter
 ```
 
 ## 流程示意图

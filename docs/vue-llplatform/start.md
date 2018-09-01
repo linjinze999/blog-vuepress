@@ -94,6 +94,7 @@ npm install mockjs -S
     - 函数后空格：vue eslint规定函数名与`()`之间需有空格。File => Setting => Editor => Code Style => JavaScript => Spaces，勾选`Function declaration parentheses`。
     - 缩进问题：vue eslint默认缩进两个空格。File => Setting => Editor => Code Style => CSS、HTML、JavaScript => Tabs and Indents，将三种语言的缩进设置改为：Tab size=2；Indent=2；Continuation indent=4
     - 不允许连续两个空行：vue eslint默认不允许有连续两个空行。File => Setting => Editor => Code Style => JavaScript => Blank Lines，设置Keep Maximum Blank Lines => In code：1。
+
 ### 2. 完善css-loader
 在`build/utils.js`中我们可以看到，vue-cli项目自动帮我们判断了需要哪些css的loader。如果你想以后不再轻易动`package.json`的话，你完全可以把这些loader都安装上。其中安装`sass-loader`前需要提前安装`node-sass`。安装`less-loader`前需要安装`less`。以下为安装sass-loader和less-loader
 ``` bash
@@ -102,17 +103,39 @@ npm install node-sass sass-loader less less-loader --save-dev
 
 ### 3. 其他依赖
 - [Font Awesome](http://fontawesome.dashgame.com/)：图标库扩展（element-ui里面的图标实在太少了）
-- [vue-gemini-scrollbar](https://www.npmjs.com/package/vue-gemini-scrollbar)：自定义滚动条（虽然element-ui有隐藏的组件滚动条[el-scrollbar](https://blog.csdn.net/zhongguohaoshaonian/article/details/79734787)，但其不支持横向滚动，因此引入`vue-gemini-scrollbar`）
+- [vuescroll](http://vuescrolljs.yvescoding.org/zh/demo/)：自定义滚动条（虽然element-ui有隐藏的组件滚动条[el-scrollbar](https://blog.csdn.net/zhongguohaoshaonian/article/details/79734787)，但其不支持横向滚动，因此引入`vuescroll`）
+- [crypto-js](https://github.com/brix/crypto-js)：加密算法，登录时使用
+- common-css：创建一个统一的初始样式
 
+**步骤如下**：
+1. 安装依赖
 ``` bash
-npm install font-awesome vue-gemini-scrollbar --save
+npm install font-awesome vue-gemini-scrollbar crypto-js --save
 ```
-在`src/main.js`里面加入：
+2. 创建统一样式文件 `src/assets/css/common.css`：
+```
+* {
+  box-sizing: border-box;
+  margin:0;
+  padding:0;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+/* [vue-scroll] show when hover */
+.__vuescroll:hover .__bar-is-vertical, .__vuescroll:hover .__bar-is-horizontal{
+  opacity: 1 !important;
+}
+```
+3. 在`src/main.js`里面加入：
 ```
 import 'font-awesome/scss/font-awesome.scss'
-import GeminiScrollbar from 'vue-gemini-scrollbar'
+import VueScroll from 'vuescroll'
+import 'vuescroll/dist/vuescroll.css'
+import './assets/css/common.css'
 
-Vue.use(GeminiScrollbar)
+Vue.use(VueScroll, {ops: {bar: {background: '#C0C4CC'}}})
 ```
 
 ### 4. 目录结构
