@@ -110,7 +110,7 @@ npm install node-sass sass-loader less less-loader --save-dev
 **步骤如下**：
 1. 安装依赖
 ``` bash
-npm install font-awesome vue-gemini-scrollbar crypto-js --save
+npm install font-awesome vuescroll crypto-js --save
 ```
 2. 创建统一样式文件 `src/assets/css/common.css`：
 ```
