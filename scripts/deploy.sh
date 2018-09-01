@@ -1,3 +1,4 @@
+cp -r ./preview ./vuepress/
 cd vuepress
 git init
 git add -A

@@ -4,3 +4,4 @@ git commit
 git pull
 git push origin master
 echo "Released to Github."
+cp ../preview ../vuepress/
