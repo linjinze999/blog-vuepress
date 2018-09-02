@@ -9,7 +9,7 @@ vue-llplatform，基于[vue](https://cn.vuejs.org/)、[element](http://element-c
 
 源码地址：[https://github.com/linjinze999/vue-llplatform](https://github.com/linjinze999/vue-llplatform)
 
-在线预览：[https://linjinze999.github.io/preview/vue-llplatform/#/index](https://linjinze999.github.io/preview/vue-llplatform/#/index)
+在线预览：[https://linjinze999.github.io/preview/vue-llplatform/#/login](https://linjinze999.github.io/preview/vue-llplatform/#/login)
 
 ## 参考资料
 1. [Vue + ElementUI 手撸后台管理网站基本框架](https://blog.csdn.net/harsima/article/details/77949609)
