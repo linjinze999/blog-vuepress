@@ -269,7 +269,7 @@ const page_permission = (permissions, to_path, next) => {
 /* 权限控制 */
 router.beforeEach((to, from, next) => {
   /* 忽略错误页面的权限判断 */
-  if (to.path.indexOf('/error') === 0) {
+  if (to.meta.errorPage) {
     return next()
   }
   /* 进入登录页面将注销用户信息 */
@@ -382,7 +382,7 @@ export default {
 </style>
 ```
 
-修改路由配置`src/router/staticRouter.js`
+修改路由配置`src/router/staticRouter.js`：
 ``` js 
 import AppError401 from '@/pages/error/AppError401'
 import AppError404 from '@/pages/error/AppError404'
@@ -393,17 +393,22 @@ const staticRouter = [
     ...
   }, {
     path: '/error/401',
-    name: '401',
+    name: '错误401',
+    meta: {errorPage: true},
     component: AppError401
   }, {
     path: '*',
-    name: '404',
+    name: '错误404',
+    meta: {errorPage: true},
     component: AppError404
   }
 ]
 
 export default staticRouter
 ```
+::: tip 提示
+我们在上方编写导航钩子时，忽略了`to.meta.errorPage`页面的权限检测，因此错误页面都要加上此值。
+:::
 
 ## 流程示意图
 页面权限流程控制大体如下：

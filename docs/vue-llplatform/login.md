@@ -63,7 +63,7 @@ export default {
 安全起见，请求登录时不会发送明文密码，而是发送加密后的字符串，本项目采用sha256加密算法。
 
 #### 5. 页面跳转
-页面跳转使用Vue官方的路由管理器[Vue Router](https://router.vuejs.org/zh/)，下一小节会介绍如何配置。
+页面跳转使用Vue官方的路由管理器[Vue Router](https://router.vuejs.org/zh/)，下一小节会介绍如何配置。此处会利用到其`beforeRouteEnter`导航守卫，获取上一个页面的URL，以便登录后能跳转至该URL，而非固定的首页。
 
 
 ### 代码实现
@@ -113,6 +113,7 @@ export default {
   data () {
     return {
       logining: false,
+      fromUrl: '/',
       ruleForm: {
         account: 'admin',
         checkPass: '123456'
@@ -140,7 +141,7 @@ export default {
               message: '登录成功！',
               type: 'success'
             });
-            this.$router.push({path: '/index'})
+            this.$router.push(this.fromUrl)
           }).catch(err => {
             this.logining = false
             console.log(err)
@@ -151,6 +152,11 @@ export default {
         }
       })
     }
+  },
+  beforeRouteEnter (to, from, next) {
+    next(vm => {
+      vm.fromUrl = from.fullPath
+    })
   }
 }
 
