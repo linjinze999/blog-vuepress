@@ -112,28 +112,39 @@ npm install node-sass sass-loader less less-loader --save-dev
 ``` bash
 npm install font-awesome vuescroll crypto-js --save
 ```
-2. 创建统一样式文件 `src/assets/css/common.css`：
-```
+2. 创建统一样式文件 `src/assets/css/common.scss`：
+``` scss
 * {
   box-sizing: border-box;
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
 }
+
 a {
   text-decoration: none;
   color: inherit;
 }
+
 /* [vue-scroll] show when hover */
-.__vuescroll:hover .__bar-is-vertical, .__vuescroll:hover .__bar-is-horizontal{
-  opacity: 1 !important;
+.__vuescroll:hover {
+  > .__rail-is-vertical {
+    .__bar-is-vertical {
+      opacity: 1 !important;
+    }
+  }
+  > .__rail-is-horizontal {
+    .__bar-is-horizontal {
+      opacity: 1 !important;
+    }
+  }
 }
 ```
 3. 在`src/main.js`里面加入：
-```
+``` js
 import 'font-awesome/scss/font-awesome.scss'
 import VueScroll from 'vuescroll'
 import 'vuescroll/dist/vuescroll.css'
-import './assets/css/common.css'
+import './assets/css/common.scss'
 
 Vue.use(VueScroll, {ops: {bar: {background: '#C0C4CC'}}})
 ```

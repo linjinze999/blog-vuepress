@@ -53,7 +53,10 @@ module.exports = {
 			'request',
 			'login',
 			'permission',
-			'layout']
+			'layout',
+			'functions',
+			'language'
+			]
         }
       }
     }

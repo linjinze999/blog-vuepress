@@ -471,13 +471,15 @@ export default {
 
 ## 主体
 ### 描述
-实体部分主要是为了使用`<router-view>`嵌套其他页面，只需额外实现最小高度限制即可（避免页面过矮时，`footer`跑到上方）。
+实体部分主要是为了使用`<router-view>`嵌套其他页面，额外注意以下两点点即可：
+1. 最小高度限制（避免页面过矮时，`footer`跑到上方）；
+2. 背景颜色置浅灰色（让用户一眼区分空白处和内容）；
 
 ### 实现
 创建`src/pages/layout/TheLayoutMain.vue`：
 ``` vue
 <template>
-  <el-main :style="mainStyle" >
+  <el-main :style="mainStyle" class="page-sub-main">
     <transition name="fade" mode="out-in">
       <router-view></router-view>
     </transition>
@@ -499,6 +501,10 @@ export default {
 </script>
 
 <style scoped>
+.page-sub-main {
+  background-color: #EBEEF5;
+  color: #666666;
+}
 </style>
 ```
 
@@ -529,3 +535,5 @@ export default {
 
 ## 效果预览
 最终预览效果大体如下：
+
+<img src="/assets/img/vue-llplatform/layout-init.gif" />

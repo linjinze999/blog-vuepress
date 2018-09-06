@@ -2,6 +2,10 @@
 
 vue-llplatform，基于[vue](https://cn.vuejs.org/)、[element](http://element-cn.eleme.io/#/zh-CN)搭建的后台管理平台。
 
+::: tip 提示
+考虑到后台管理一般是在电脑端查看，因此本项目没有实现移动端的适配。
+:::
+
 ## 说明
 本文介绍如何从零开始搭建一个基于vue、element的管理平台。
 
