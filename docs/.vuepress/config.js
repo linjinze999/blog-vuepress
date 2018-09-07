@@ -55,7 +55,8 @@ module.exports = {
 			'permission',
 			'layout',
 			'functions',
-			'language'
+			'language',
+			'theme'
 			]
         }
       }
