@@ -81,7 +81,7 @@ const messages = {
   'en': Object.assign(myEnLocale, enLocale),
   'zh-cn': Object.assign(myZhLocale, zhLocale)
 }
-// 2.2 加载用户语言设置，语言切换就是通过重新设置localStorage值，然后刷新页面实现的（你也可以把此值存放在后台）
+// 2.2 加载用户语言设置，你也可以把此值存放在后台
 const lang = localStorage.getItem('user-language') || 'zh-cn'
 // 2. 实例化VueI18n
 const i18n = new VueI18n({
@@ -125,9 +125,9 @@ export default {
 }
 </script>
 ```
-6. 切换语言：记录下次要使用的语言，然后刷新页面重新加载
+6. 切换语言：记录并切换语言
 ``` js
 localStorage.setItem('user-language', 'zh-cn')
-window.location.reload()
+this.$i18n.locale = 'zh-cn'
 ```
 
