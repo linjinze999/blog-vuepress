@@ -383,10 +383,11 @@ export default {
 </style>
 ```
 ::: tip 提示
-此处使用了Element的[颜色选择器](http://element-cn.eleme.io/#/zh-CN/component/color-picker)组件
+此处使用了Element的[颜色选择器](http://element-cn.eleme.io/#/zh-CN/component/color-picker)组件。
+以上源码基于[vue-element-admin](https://panjiachen.github.io/vue-element-admin-site/zh/)的[ThemePicker组件](https://github.com/PanJiaChen/vue-element-admin/blob/master/src/components/ThemePicker/index.vue)作了相应修改：支持记住用户上次使用的主题；添加显示推荐颜色；修改颜色选择器的背景颜色。
 :::
 
-2. 在你想要用的地方（`src/pages/layout/TheLayoutHeader.vue`）添加`ThemePicker`组件：
+2. 在指定地方（`src/pages/layout/TheLayoutHeader.vue`）添加`ThemePicker`组件，提供主题切换功能：
 ``` vue
 <template>
   <div>
@@ -407,8 +408,27 @@ export default {
 </script>
 ```
 
-【备注】
+3. 自定义的vue组件中支持换肤：
 
-本项目基于[vue-element-admin](https://panjiachen.github.io/vue-element-admin-site/zh/)的[ThemePicker组件](https://github.com/PanJiaChen/vue-element-admin/blob/master/src/components/ThemePicker/index.vue)作了相应修改：支持记住用户上次使用的主题；添加推荐颜色；修改背景颜色。详情见：[我的ThemePicker组件源码](https://github.com/linjinze999/vue-llplatform/blob/master/src/components/ThemePicker/index.vue)
+  - 在`import`到项目的样式文件（`src/assets/css/common.scss`）中添加和element一致的颜色类：
+``` scss
+/* [theme] support theme change */
+.theme-bg-blue{
+  background-color: #409eff;
+}
+```
+若用户切换了主题，此处就会自动被替换为新的颜色。
+::: warning 警告
+初始颜色（如`#409eff`）要和`ThemePicker.vue`中定义的默认颜色一致，否则将无法被替换。
+:::
 
+  - vue组件中直接使用该样式即可：`<div class="theme-bg-blue"></div>`。
 
+::: tip 提示
+如果你想直接在vue组件中的`<style>`标签中定义可更换的颜色，你需要修改`webpack`的配置，取消组件中的 CSS 提取。
+
+因为我们自定义主题的原理是找到`<html>`中的`<style>`标签，将指定的颜色替换成新的颜色。
+但该配置会将我们的vue组件中的`<style>`内容提取到一个`css`文件中，使用`<link>`引入。这会导致我们无法正确找到指定颜色并修改它。
+
+使用这种方法会导致其他使用指定颜色的组件都被修改，这很可能不是我们希望的。因此还是推荐使用抽取`theme`公共类导入的方式。
+:::
