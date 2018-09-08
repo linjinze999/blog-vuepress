@@ -37,7 +37,7 @@ vue图表有许多选择，看个人习惯用哪一种。若图表在项目中�
 ## 富文本编辑器
 【说明】
 
-vue的富文本编辑器可选项也较多，本项目采用Element推荐的[vue-quill-editor](https://www.awesomes.cn/repo/surmon-china/vue-quill-editor)，其风格较为简洁。
+富文本编辑器可选项也较多（[常见富文本](https://panjiachen.github.io/vue-element-admin-site/zh/component/rich-editor.html)），本项目采用[vue-quill-editor](https://www.awesomes.cn/repo/surmon-china/vue-quill-editor)，其风格较为简洁。
 
 【代码示例】：[https://github.com/linjinze999/vue-llplatform/blob/master/src/pages/functions/forms/FuncFormsEdit.vue](https://github.com/linjinze999/vue-llplatform/blob/master/src/pages/functions/forms/FuncFormsEdit.vue)
 
@@ -76,3 +76,8 @@ vue的富文本编辑器可选项也较多，本项目采用Element推荐的[vue
 【预览图片】：
 
 <img src="/assets/img/vue-llplatform/func-drag.gif" />
+
+
+## 其他
+1. 复制粘贴：[clipboard.js](https://clipboardjs.com/)
+2. excel导入导出：[vue中使用excel导入导出](https://www.cnblogs.com/liguiwang/p/8430672.html)

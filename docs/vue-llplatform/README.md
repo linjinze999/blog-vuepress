@@ -6,7 +6,7 @@ vue-llplatform，基于[vue](https://cn.vuejs.org/)、[element](http://element-c
 考虑到后台管理一般是在电脑端查看，因此本项目没有实现移动端的适配。
 :::
 
-## 说明
+## 简介
 本文介绍如何从零开始搭建一个基于vue、element的管理平台。
 
 教学说明：[https://linjinze999.github.io/vue-llplatform/](https://linjinze999.github.io/vue-llplatform/)
@@ -15,5 +15,33 @@ vue-llplatform，基于[vue](https://cn.vuejs.org/)、[element](http://element-c
 
 在线预览：[https://linjinze999.github.io/preview/vue-llplatform/#/login](https://linjinze999.github.io/preview/vue-llplatform/#/login)
 
-## 参考资料
-1. [Vue + ElementUI 手撸后台管理网站基本框架](https://blog.csdn.net/harsima/article/details/77949609)
+## 功能
+```
+- 登录
+ - 登录 / 注册 / 注销
+ - 自动登录
+ - 密码加密
+
+- 权限验证
+  - 页面权限
+  - 指令权限
+
+- 全局功能
+  - 国际化多语言
+  - 自定义主题
+  - 三级侧边栏
+  - 本地mock数据
+  - 收缩侧边栏
+  - 请求错误自动处理
+  - 请求支持sessionStorage、localStorage
+
+- 功能页面
+  - 表格table
+  - 表单form
+  - 富文本编辑器
+  - 图表
+  - 拖曳
+  - 错误页面
+
+```
+

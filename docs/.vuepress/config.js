@@ -4,7 +4,7 @@ module.exports = {
     '/': {
       lang: 'zh-CN',
       title: '林锦泽的个人博客',
-      description: 'gerrit运维，包括部署、配置、升级、主从系统分布式集群、版本说明、样式优化、插件下载、接口调用、docker容器化、sonarqube代码检查。'
+      description: 'gerrit运维，包括部署、配置、升级、主从系统分布式集群、版本说明、样式优化、插件下载、接口调用、docker容器化、sonarqube代码检查。vue-llplatform，基于vue2和element2实现的后台管理平台。'
     }
   },
   head: [
