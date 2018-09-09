@@ -13,7 +13,7 @@ vue init webpack vue-llplatform
 ::: tip 提示
 项目初始化会提示输入一些自定义配置，全部回车选择默认配置即可。
 
-国内最后一步`npm install`可能失败，你可以先安装淘宝镜像cnpm（`npm install -g cnpm --registry=https://registry.npm.taobao.org`），再用cnpm安装依赖（`cnpm install`），但注意这也许会丢失一些东西。
+国内最后一步`npm install`可能失败，你可以先安装淘宝镜像cnpm（`npm install -g cnpm --registry=https://registry.npm.taobao.org`），再用cnpm安装依赖（`cnpm install`）。
 :::
 此时可以得到一个vue-llplatform文件夹，即项目demo，你可以通过以下命令启动它，然后浏览器访问[localhost:8080](localhost:8080)，即可看到一个demo页面：
 ``` bash

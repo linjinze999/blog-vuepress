@@ -56,7 +56,8 @@ module.exports = {
 			'layout',
 			'functions',
 			'language',
-			'theme'
+			'theme',
+			'build'
 			]
         }
       }
