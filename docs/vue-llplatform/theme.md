@@ -135,7 +135,9 @@ Vue.use(ElementUI)
 
 这是比较常见的主题切换功能：系统内置多种主题颜色，用户选择其中一种作为本地主题。（参考[这篇文章](https://segmentfault.com/a/1190000009762198#articleHeader2)）
 
-实现思路大体为：本地存放多套主题，两者有不同的命名空间，如写两套主题，一套叫`day-theme`，放在命名空间`.day-theme`下；一套叫`night-theme`，放在命名空间`night-theme`下。我们动态的在`body`的`class`上添加`day-theme`或者`night-theme`，达到切换主题的目的。
+<img src="/assets/img/vue-llplatform/theme-change.gif"/>
+
+**实现思路大体为**：本地存放多套主题，两者有不同的命名空间，如写两套主题，一套叫`day-theme`，放在命名空间`.day-theme`下；一套叫`night-theme`，放在命名空间`night-theme`下。我们动态的在`body`的`class`上添加`day-theme`或者`night-theme`，达到切换主题的目的。
 ``` css
 /* day-theme */
 .day-theme .element-class { bascground-color: #ffffff }
@@ -388,7 +390,7 @@ export default {
 :::
 
 2. 在指定地方（`src/pages/layout/TheLayoutHeader.vue`）添加`ThemePicker`组件，提供主题切换功能：
-``` vue
+``` vue {4,9,14}
 <template>
   <div>
     ...

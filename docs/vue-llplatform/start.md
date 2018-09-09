@@ -105,7 +105,7 @@ npm install node-sass sass-loader less less-loader --save-dev
 - [Font Awesome](http://fontawesome.dashgame.com/)：图标库扩展（element-ui里面的图标实在太少了）
 - [vuescroll](http://vuescrolljs.yvescoding.org/zh/demo/)：自定义滚动条（虽然element-ui有隐藏的组件滚动条[el-scrollbar](https://blog.csdn.net/zhongguohaoshaonian/article/details/79734787)，但其不支持横向滚动，因此引入`vuescroll`）
 - [crypto-js](https://github.com/brix/crypto-js)：加密算法，登录时使用
-- common-css：创建一个统一的初始样式
+- `common.scss`：创建一个统一的初始样式
 
 **步骤如下**：
 1. 安装依赖
