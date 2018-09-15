@@ -77,6 +77,21 @@ vue图表有许多选择，看个人习惯用哪一种。若图表在项目中�
 
 <img src="/assets/img/vue-llplatform/func-drag.gif" />
 
+## 权限配置
+【说明】
+
+本项目的[权限控制策略](/vue-llplatform/permission.html)采用前端记录页面表，后台记录权限表，前端根据权限表显示页面的方式，适合在权限配置比较频繁的时候使用。因此需要开发一个权限设置页面。
+
+权限设置页面分为三种：用户、角色、页面。一个用户可以有多个角色；角色指定了其拥有的页面权限和页面中的指令权限；页面记录了页面信息，包括指令权限。
+
+【代码示例】：[https://github.com/linjinze999/vue-llplatform/blob/master/src/pages/functions/user/FuncUserPermissions.vue](https://github.com/linjinze999/vue-llplatform/blob/master/src/pages/functions/user/FuncUserPermissions.vue)
+
+【在线演示】：[https://linjinze999.github.io/preview/vue-llplatform/#/user/permissions](https://linjinze999.github.io/preview/vue-llplatform/#http://localhost:8080)
+
+【预览图片】：
+
+<img src="/assets/img/vue-llplatform/func-permission.gif" />
+
 
 ## 其他
 1. 复制粘贴：[clipboard.js](https://clipboardjs.com/)

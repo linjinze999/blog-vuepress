@@ -37,9 +37,10 @@ vue-llplatform，基于[vue](https://cn.vuejs.org/)、[element](http://element-c
 - 全局功能
   - 国际化多语言
   - 自定义主题
-  - 三级侧边栏
   - 本地mock数据
+  - 三级侧边栏
   - 收缩侧边栏
+  - 自定义滚动条
   - 请求错误自动处理
   - 请求支持sessionStorage、localStorage
 
@@ -49,6 +50,7 @@ vue-llplatform，基于[vue](https://cn.vuejs.org/)、[element](http://element-c
   - 富文本编辑器
   - 图表
   - 拖曳
+  - 权限设置
   - 错误页面
 
 ```
