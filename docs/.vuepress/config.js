@@ -43,6 +43,16 @@ module.exports = {
           },{
             text: 'vue-llplatform',
             link: '/vue-llplatform/',
+		  },{
+            text: '学习资料',
+            items: [
+                {
+					text: '前端',
+					items: [
+				        { text: 'javascript', link: '/learning/frontEnd/js/'}
+					] 
+				}
+			]
 		  }
         ],
         sidebar: {
@@ -58,7 +68,17 @@ module.exports = {
 			'language',
 			'theme',
 			'build'
-			]
+			],
+		  '/learning/':[
+		    '',
+			{
+				title: '前端',
+				collapsable: true,
+				children: [
+				  'frontEnd/js/'
+				]
+			}
+		  ]
         }
       }
     }
