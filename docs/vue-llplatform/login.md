@@ -140,7 +140,7 @@ export default {
             this.$message({
               message: '登录成功！',
               type: 'success'
-            });
+            })
             this.$router.push(this.fromUrl)
           }).catch(err => {
             this.logining = false
@@ -155,7 +155,7 @@ export default {
   },
   beforeRouteEnter (to, from, next) {
     next(vm => {
-      if (from.fullPath !== '/register' && !from.meta.errorPage){
+      if (from.fullPath !== '/register' && !from.meta.errorPage) {
         vm.fromUrl = from.fullPath
       }
     })
@@ -365,6 +365,33 @@ export default {
 </style>
 ```
 
+3. 取消`App.vue`自带的一些配置：
+``` vue {3,19,21}
+<template>
+  <div id="app">
+    <!-- 删除此行：<img src="./assets/logo.png"> -->
+    <router-view/>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'App'
+}
+</script>
+
+<style>
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* 删除此行：text-align: center; */
+  color: #2c3e50;
+  /* 删除此行：margin-top: 60px; */
+}
+</style>
+```
+
 ## 路由管理
 以上我们编写完了页面，但却没有告诉系统什么时候去显示这些页面。这时候我们就需要一个[路由管理器](https://router.vuejs.org/zh/)，来帮我们自动调用这些页面。比如当URL是`/login`时，自动调用`src/pages/login/AppLogin.vue`页面并显示。
 
@@ -372,7 +399,7 @@ export default {
 ``` js
 import AppLogin from '@/pages/login/AppLogin'
 import AppRegister from '@/pages/login/AppRegister'
-import HelloWorld from '@/pages/components/HelloWorld'
+import HelloWorld from '@/components/HelloWorld'
 
 /* 静态页面路由 */
 const staticRouter = [

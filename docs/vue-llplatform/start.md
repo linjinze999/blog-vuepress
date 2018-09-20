@@ -79,13 +79,15 @@ npm install mockjs -S
 ### 1. 修改eslint
 项目默认使用了[eslint](http://eslint.cn/docs/rules/)检测规则，有些规则可能跟我们的编程习惯不一样，这会让我们的项目无法运行。我们可以通过修改`.eslintrc.js`文件来修改检测规则。
   - 取消强制驼峰命名：个人喜欢下划线命名方式，所以取消了驼峰命名检测：rules.camelcase: 'off'
-``` js {6}
+  - 取消文件末尾空行：参考此文档可能导致你文件后缺少空行，因此取消，真正开发建议不要取消
+``` js {6,7}
   rules: {
     // allow async-await
     'generator-star-spacing': 'off',
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'camelcase': 'off'
+    'camelcase': 'off',
+    'eol-last': 'off'
   }
 ```
   - vue eslint规则和idea冲突：如果你使用IDEA或webstorm编辑代码，会发现其内置规则与vue eslint规则有所冲突，需要我们修改一下。

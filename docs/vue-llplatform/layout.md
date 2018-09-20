@@ -343,7 +343,7 @@ export default {
 ```
 
 2. 修改`src/router/staticRouter.js`：
-``` js
+``` js {6-8,23-53}
 import TheLayout from '@/pages/layout/TheLayout'
 import AppLogin from '@/pages/login/AppLogin'
 import AppRegister from '@/pages/login/AppRegister'

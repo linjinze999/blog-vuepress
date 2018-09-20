@@ -383,14 +383,30 @@ export default {
 ```
 
 修改路由配置`src/router/staticRouter.js`：
-``` js 
+``` js {4,5,24-34}
+import AppLogin from '@/pages/login/AppLogin'
+import AppRegister from '@/pages/login/AppRegister'
+import HelloWorld from '@/components/HelloWorld'
 import AppError401 from '@/pages/error/AppError401'
 import AppError404 from '@/pages/error/AppError404'
 
 /* 静态页面路由 */
 const staticRouter = [
   {
-    ...
+    path: '/',
+    redirect: '/index'
+  }, {
+    path: '/login',
+    name: '登录',
+    component: AppLogin
+  }, {
+    path: '/register',
+    name: '注册',
+    component: AppRegister
+  }, {
+    path: '/index',
+    name: '首页',
+    component: HelloWorld
   }, {
     path: '/error/401',
     name: '错误401',
@@ -405,6 +421,7 @@ const staticRouter = [
 ]
 
 export default staticRouter
+
 ```
 ::: tip 提示
 我们在上方编写导航钩子时，忽略了`to.meta.errorPage`页面的权限检测，因此错误页面都要加上此值。
