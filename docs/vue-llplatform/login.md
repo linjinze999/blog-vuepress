@@ -365,7 +365,7 @@ export default {
 </style>
 ```
 
-3. 取消`App.vue`自带的一些配置：
+3. 取消`src/App.vue`自带的一些配置：
 ``` vue {3,19,21}
 <template>
   <div id="app">
