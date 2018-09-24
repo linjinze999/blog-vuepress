@@ -46,12 +46,7 @@ module.exports = {
 		  },{
             text: '学习资料',
             items: [
-                {
-					text: '前端',
-					items: [
-				        { text: 'javascript', link: '/learning/frontEnd/js/'}
-					] 
-				}
+                { text: 'javascript', link: '/learning/javascript/'}
 			]
 		  }
         ],
@@ -70,12 +65,12 @@ module.exports = {
 			'build'
 			],
 		  '/learning/':[
-		    '',
 			{
-				title: '前端',
+				title: 'Javascript',
 				collapsable: true,
+				sidebarDepth: 1,
 				children: [
-				  'frontEnd/js/'
+				  'javascript/promise.md'
 				]
 			}
 		  ]
