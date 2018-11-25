@@ -62,7 +62,8 @@ module.exports = {
 			'functions',
 			'language',
 			'theme',
-			'build'
+			'build',
+			'store'
 			],
 		  '/learning/':[
 			{
