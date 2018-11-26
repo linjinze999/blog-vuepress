@@ -45,13 +45,13 @@ export default store
 然后在`src/main.js`中将`store`写入到Vue实例（参考[Vue定义全局变量](https://blog.csdn.net/yanby921005/article/details/80532984)）：
 ``` js
 import store from 'store/index'
-Vue.propotype.store = store
+Vue.prototype.store = store
 ```
 ::: tip 提示
 如果你不是一个Vue CLI应用，只是单纯的引用vue.js，定义一个全局变量`var store`后就可以直接在js里引用该`store`全局变量，而不用将`store`写入Vue实例。
 :::
-之后你就可以在任意vue组件中通过如下方式来调用、修改message了：
-``` vue {3-5,13-16,20-27}
+之后你就可以在任意vue组件中通过如下方式来调用、修改message了（**注意如果没有组件data引用`store.state`，则`store.state`是非响应式的**）：
+``` vue {3-5,13-17,21-28}
 <template>
   <div>
     <p>全局变量：{{ store.state.message }}（等于共享状态）</p>
@@ -64,7 +64,8 @@ Vue.propotype.store = store
 export default {
   data () {
     return {
-      // 共享状态数据，指向全局store.state引用，二者同步更新数据
+      // 共享状态数据，指向全局store.state引用，并使其变为响应式，二者同步更新数据
+      // 若无此声明，则store.state是非响应式的，即你无法同步其数据变更
       sharedState: this.store.state,
       // 私有状态数据，通过深拷贝复制一份数据，不影响全局store.state
       privateState: JSON.parse(JSON.stringify(store.state))
@@ -86,7 +87,7 @@ export default {
 
 
 ## 二、Vuex
-当你需要管理一个大型应用数据的时候，以上简单Store模式可能就无法满足你的需求了（比如你的数据需要划分一下模块）。官网提供专为 Vue.js 应用程序开发的状态管理模式——[Vuex](https://vuex.vuejs.org/zh/)，它其实就是对以上简单Store模式的扩展，有了更多的功能（如模块划分、time-travel 调试、状态快照导入导出等高级调试功能）。
+当你需要管理一个大型应用数据的时候，以上简单Store模式可能就无法满足你的需求了（比如你的数据需要划分一下模块）。官网提供专为 Vue.js 应用程序开发的状态管理模式——[Vuex](https://vuex.vuejs.org/zh/)，它其实就是对以上简单Store模式的扩展，有了更多的功能（如响应式数据、模块划分、time-travel 调试、状态快照导入导出等高级调试功能）。
 
 具体介绍见[官网](https://vuex.vuejs.org/zh/)，以下是一些简介。
 
