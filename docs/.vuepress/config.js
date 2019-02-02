@@ -71,7 +71,7 @@ module.exports = {
 				collapsable: true,
 				sidebarDepth: 1,
 				children: [
-				  'javascript/promise.md'
+				  'javascript/jquery.md'
 				]
 			}
 		  ]
