@@ -178,7 +178,7 @@ $('#button').on('click', function(){
 4. 设置`$.fn.loading.defaults`默认参数；
 
 
-``` html {53-111}
+``` html {53-112}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -273,7 +273,6 @@ html, body {
         data = new Loading($this, options);
         $this.data('loading', data);
         data.init();
-        options.autoShow && data.show();
       }
       // 若参数是string则调用对应方法
       if (typeof option === 'string') {
@@ -281,6 +280,8 @@ html, body {
           throw 'Unknown method: ' + option;
         }
         value = data[option]();
+      } else {
+        options.autoShow && data.show();
       }
     });
     return typeof value !== 'undefined' ? value : this;
