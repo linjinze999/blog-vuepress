@@ -164,6 +164,9 @@ $('#button').on('click', function(){
 </html>
 ```
 
+实现效果如图：
+<img src="/assets/img/learning/js/jq_alert.gif" />
+
 ## $.fn.*
 `$.fn`可以为选择器的所有元素扩展一个方法。
 
@@ -304,3 +307,6 @@ $('#button').on('click', function(){
 </script>
 </html>
 ```
+
+实现效果如图：
+<img src="/assets/img/learning/js/jq_load.gif" />

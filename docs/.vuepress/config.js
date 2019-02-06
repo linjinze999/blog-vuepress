@@ -3,8 +3,7 @@ module.exports = {
   locales: {
     '/': {
       lang: 'zh-CN',
-      title: '林锦泽的个人博客',
-      description: 'gerrit运维，包括部署、配置、升级、主从系统分布式集群、版本说明、样式优化、插件下载、接口调用、docker容器化、sonarqube代码检查。vue-llplatform，基于vue2和element2实现的后台管理平台。'
+      title: '林锦泽的个人博客'
     }
   },
   head: [
@@ -17,7 +16,6 @@ module.exports = {
     ['link', { rel: 'mask-icon', href: '/icons/safari-pinned-tab.svg', color: '#3eaf7c' }],
     ['meta', { name: 'msapplication-TileImage', content: '/icons/msapplication-icon-144x144.png' }],
     ['meta', { name: 'msapplication-TileColor', content: '#000000' }],
-    ['meta', { name: 'description', content: 'gerrit运维' }],
     ['script', { src: '/assets/js/article.js'}]
   ],
   markdown: {
@@ -46,35 +44,44 @@ module.exports = {
 		  },{
             text: '学习资料',
             items: [
-                { text: 'javascript', link: '/learning/javascript/'}
+                { text: 'Javascript', link: '/learning/javascript/'},
+                { text: 'Vue', link: '/learning/vue/'}
 			]
 		  }
         ],
         sidebar: {
           '/gerrit/': genSidebarConfig('Gerrit运维'),
-		  '/vue-llplatform/':[
-		    '', 
-			'start',
-			'request',
-			'login',
-			'permission',
-			'layout',
-			'functions',
-			'language',
-			'theme',
-			'build',
-			'store'
-			],
-		  '/learning/':[
-			{
-				title: 'Javascript',
-				collapsable: true,
-				sidebarDepth: 1,
-				children: [
-				  'javascript/jquery.md'
-				]
-			}
-		  ]
+          '/vue-llplatform/':[
+            '', 
+            'start',
+            'request',
+            'login',
+            'permission',
+            'layout',
+            'functions',
+            'language',
+            'theme',
+            'build',
+            'store'
+          ],
+          '/learning/':[
+            {
+                title: 'Javascript',
+                collapsable: true,
+                sidebarDepth: 1,
+                children: [
+                  'javascript/jquery.md'
+                ]
+            },
+            {
+                title: 'Vue',
+                collapsable: true,
+                sidebarDepth: 1,
+                children: [
+                  'vue/vuepress.md'
+                ]
+            }
+          ]
         }
       }
     }
@@ -88,13 +95,13 @@ function genSidebarConfig (title) {
       collapsable: true,
       children: [
         '',
-		'deploy',
-		'config',
-		'upgrade',
-		'distribute',
-		'extend',
-		'develop',
-		'question'
+        'deploy',
+        'config',
+        'upgrade',
+        'distribute',
+        'extend',
+        'develop',
+        'question'
       ]
     }
   ]
