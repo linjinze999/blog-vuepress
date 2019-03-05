@@ -78,7 +78,9 @@ module.exports = {
                 collapsable: true,
                 sidebarDepth: 1,
                 children: [
-                  'vue/vuepress.md'
+                  'vue/vuepress.md',
+                  'vue/technology.md',
+                  'vue/optimize.md'
                 ]
             }
           ]

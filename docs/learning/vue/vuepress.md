@@ -4,7 +4,7 @@ sidebarDepth: 0
 # Vuepress
 本章节介绍如何使用 [github](https://github.com/) + [vuepress](https://vuepress.vuejs.org/zh/) 搭建纯静态页面的个人博客。
 ::: tip 提示
-面向（半）技术人员。你需要懂得：[git]((https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000) 、 [markdown](https://www.jianshu.com/p/191d1e21f7ed)（可以使用[markdownpad2编辑器](http://markdownpad.com/)）；若你还懂得[Vue](https://cn.vuejs.org/)，那你可以更灵活地定制你的页面。
+面向（半）技术人员。你需要懂得：[git](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000) 、 [markdown](https://www.jianshu.com/p/191d1e21f7ed)（可以使用[markdownpad2编辑器](http://markdownpad.com/)）；若你还懂得[Vue](https://cn.vuejs.org/)，那你可以更灵活地定制你的页面。
 :::
 
 ## Github
