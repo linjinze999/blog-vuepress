@@ -90,7 +90,7 @@ export const sessionRequest = (url, params, out_time = -1, config = {}, auto_err
   }
   return request(url, params, config, auto_error_res, auto_error_data).then(data => {
     sessionStorage.setItem(item_key, JSON.stringify({
-      'last_time': now_time,
+      'last_time': out_time < 0 ? now_time : (now_time + out_time * 1000),
       'data': data
     }))
     return data
@@ -111,7 +111,7 @@ export const localRequest = (url, params, out_time = 604800, config = {}, auto_e
   }
   return request(url, params, config, auto_error_res, auto_error_data).then(data => {
     localStorage.setItem(item_key, JSON.stringify({
-      'last_time': now_time,
+      'last_time': out_time < 0 ? now_time : (now_time + out_time * 1000),
       'data': data
     }))
     return data
