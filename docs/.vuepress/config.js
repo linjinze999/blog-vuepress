@@ -36,6 +36,9 @@ module.exports = {
         lastUpdated: '上次更新',
         nav: [
           {
+            text: 'Uni组件库',
+            link: '/uni/',
+		  }, {
             text: 'Gerrit运维',
             link: '/gerrit/',
           },{
