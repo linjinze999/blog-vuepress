@@ -6,9 +6,9 @@
         <h3 align="center">{{ title }}</h3>
         <p align="center" v-html="description"></p>
         <div class="categories">
-          <router-link v-for="ca in catalog" v-bind:to="ca.link" :key="ca.link">
+          <a v-for="ca in catalog" :href="ca.link" :key="ca.link">
             <el-button type="success" round size="small">{{ ca.name }}</el-button>
-          </router-link>
+          </a>
         </div>
       </el-card>
     </div>
@@ -19,16 +19,16 @@
         <i class="el-icon-loading" style="margin-left:20px;"></i>
       </div>
       <div class="skill-large">
-        <el-row v-for="index of (Math.ceil(skills.length / 4))" :key="index">
-          <el-col :span="6" v-for="sk in skills.slice((index - 1) * 4, (index - 1) * 4 + 4)" :key="index+'-'+sk">
+        <el-row v-for="index of (Math.ceil(skills.length / 4))" :key="'skill' + index">
+          <el-col :span="6" v-for="sk in skills.slice((index - 1) * 4, (index - 1) * 4 + 4)" :key="index+'-'+JSON.stringify(sk)">
             <el-progress type="circle" :percentage="sk.percentage" :width="skill_large_size"></el-progress>
             <p>{{ sk.name }}</p>
           </el-col>
         </el-row>
       </div>
       <div class="skill-small">
-        <el-row v-for="index of (Math.ceil(skills.length / 4))" :key="index">
-          <el-col :span="6" v-for="sk in skills.slice((index - 1) * 4, (index - 1) * 4 + 4)" :key="index+'-'+sk">
+        <el-row v-for="index of (Math.ceil(skills.length / 4))" :key="'skill_sm'+index">
+          <el-col :span="6" v-for="sk in skills.slice((index - 1) * 4, (index - 1) * 4 + 4)" :key="index+'-'+JSON.stringify(sk)">
             <el-progress type="circle" v-bind:percentage="sk.percentage" :width="skill_small_size"></el-progress>
             <p>{{ sk.name }}</p>
           </el-col>
@@ -80,7 +80,7 @@ export default {
         {name: 'Python', percentage: 80},
         {name: 'Java', percentage: 65},
         {name: 'C++', percentage: 50},
-        {name: 'Vue', percentage: 60},
+        {name: 'Vue', percentage: 80},
         {name: 'Django', percentage: 70},
         {name: 'SpringMVC', percentage: 55},
         {name: 'Docker', percentage: 80}
@@ -92,7 +92,7 @@ export default {
         description: '使用Avalon MVVM框架开发前端WEB网页。'
       }, {
         title: 'TP-LINK',
-        description: '使用Python的Django框架开发部门DevOps网站。维护Gerrit、Jenkins等系统。'
+        description: '使用Python的Django框架开发部门DevOps网站。维护Gerrit、Jenkins等系统及其Docker容器化。Vue前端。'
       }],
       my_home_qr: '/assets/img/home-qr.png',
       my_home_text: 'Email © linjinze999@163.com',
