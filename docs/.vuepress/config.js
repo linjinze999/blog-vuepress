@@ -37,13 +37,13 @@ module.exports = {
         nav: [
           {
             text: 'Uni组件库',
-            link: '/uni/',
+            link: 'https://linjinze999.github.io/uni/',
 		  }, {
             text: 'Gerrit运维',
             link: '/gerrit/',
           },{
             text: 'vue-llplatform',
-            link: '/vue-llplatform/',
+            link: 'https://linjinze999.github.io/vue-llplatform/',
 		  },{
             text: '学习资料',
             items: [
@@ -54,19 +54,6 @@ module.exports = {
         ],
         sidebar: {
           '/gerrit/': genSidebarConfig('Gerrit运维'),
-          '/vue-llplatform/':[
-            '', 
-            'start',
-            'request',
-            'login',
-            'permission',
-            'layout',
-            'functions',
-            'language',
-            'theme',
-            'build',
-            'store'
-          ],
           '/learning/':[
             {
                 title: 'Javascript',
