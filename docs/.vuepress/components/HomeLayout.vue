@@ -77,13 +77,13 @@ export default {
       ],
       skills: [
         {name: 'Javascript', percentage: 80},
-        {name: 'Python', percentage: 80},
-        {name: 'Java', percentage: 65},
-        {name: 'C++', percentage: 50},
         {name: 'Vue', percentage: 80},
-        {name: 'Django', percentage: 70},
-        {name: 'SpringMVC', percentage: 55},
-        {name: 'Docker', percentage: 80}
+        {name: 'React', percentage: 65},
+        {name: 'Nodejs', percentage: 70},
+        {name: 'Docker', percentage: 80},
+        {name: 'Python/Django', percentage: 75},
+        {name: 'Java/SpringMVC', percentage: 60},
+        {name: 'C++', percentage: 50},
       ],
       skill_large_size: 120,
       skill_small_size: 80,
@@ -92,7 +92,10 @@ export default {
         description: '使用Avalon MVVM框架开发前端WEB网页。'
       }, {
         title: 'TP-LINK',
-        description: '使用Python的Django框架开发部门DevOps网站。维护Gerrit、Jenkins等系统及其Docker容器化。Vue前端。'
+        description: '使用Django开发部门DevOps网站。维护Gerrit、Jenkins等CI/CD系统及其Docker容器化。Vue前端web网站。'
+      }, {
+        title: '腾讯音乐',
+        description: '移动端开发...'
       }],
       my_home_qr: '/assets/img/home-qr.png',
       my_home_text: 'Email © linjinze999@163.com',
